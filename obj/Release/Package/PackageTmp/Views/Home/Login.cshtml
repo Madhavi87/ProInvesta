@@ -1,0 +1,40 @@
+﻿@model ProInvesta.Models.User
+@{
+ ViewBag.Title = "Index";
+ Layout = null;
+ string msg = "";
+}
+@if (ViewBag.msg != null)
+{
+ msg = ViewBag.msg;
+}
+ @using (Ajax.BeginForm("Login", "Home", new AjaxOptions { HttpMethod = "POST", OnSuccess = "", OnFailure = "" }))
+                                    {
+
+                                        <div class="form">
+                                            <p>
+                                                <label>
+                                                    Username<br />
+                                                    @Html.TextBoxFor(model => model.UserName,new { @class="input-text"})
+                                                  <!--  <input type="text" tabindex="10" size="20" value="" name="log" class="input-text" />-->
+                                                </label>
+                                            </p>
+
+                                            <p>
+                                                <label>
+                                                    Password<br />
+                                                    @Html.PasswordFor(model => model.Password, new { @class="input-text"})
+                                                  <!--  <input type="password" tabindex="20" size="20" value="" name="pwd" class="input-text" />-->
+                                                </label>
+                                            </p>
+
+                                            <a class="align-left lostpassword" href="#" title="Password Lost and Found">lost password?
+                                            </a>
+
+                                            <p class="align-right">
+                                                <input type="submit" tabindex="100" value="Login" name="wp-submit" class="input-submit" />
+                                                <input type="hidden" value="index.html" name="redirect_to" />
+                                                <input type="hidden" value="1" name="testcookie" />
+                                            </p>
+                                        </div>
+ }

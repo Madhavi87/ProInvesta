@@ -1,0 +1,161 @@
+﻿@model ProInvesta.Models.MutualFundEnquiry
+
+@{
+    ViewBag.Title = "MutualFundEnquiry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<!-- START PAGE META -->
+<div id="page-meta" class="group">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <!-- TITLE -->
+                <div class="title">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PAGE META -->
+
+<!-- START MAP -->
+
+<!-- START PRIMARY -->
+<div id="primary" class="sidebar-right">
+    <div class="container group">
+        <div class="row">
+            <!-- START CONTENT -->
+            <div id="content-page" class="span9 content group">
+                 @if (@TempData["mflag"] != "" && @TempData["mflag"]=="added")
+                 {
+                 <div id="alert" class="alert alert-success" >             
+                            <strong>Thank you!</strong> Your contact has been added. 
+                        </div>
+                 }
+                @using (Html.BeginForm("MutualFundEnquiry", "Fund", FormMethod.Post))
+                {
+                
+			   <div class="form-group">
+					 
+					<label for="Name">
+					Name
+                     </label>
+
+					 @Html.TextBoxFor(model => model.Name, new { @class = "required", required="required"  })
+                  
+				</div>
+                <div class="form-group">
+					 
+					<label for="Mobile">
+						Mobile
+					</label>
+
+					@Html.TextBoxFor(model => model.Mobile, new { @class = "required", required="required" })
+                    
+				</div>
+               <div class="form-group">
+					 
+					<label for="exampleInputEmail1">
+						Email
+					</label>
+
+					 @Html.TextBoxFor(model => model.Email, new { @class = "required", required="required" })
+                    
+				</div>
+                <div class="form-group">
+					 
+					<label for="exampleInputEmail1">
+						City
+					</label>
+
+					 @Html.TextBoxFor(model => model.city, new { @class = "with-icon required", required="required" })
+                   
+				</div>
+                <div class="form-group">
+					 
+					<label for="exampleInputEmail1">
+						Investment Amount
+					</label>
+
+					 @Html.TextBoxFor(model => model.Loan_Amnt, new { @class = "with-icon required" , required="required"})
+                  
+				</div>
+                
+                <div class="form-group">
+                
+                                    <label for="Property Type">
+                                       Property Type
+                                    </label>
+
+                                       @Html.DropDownListFor(model => model.Mutual_Fund_Type, new[] {
+                                            new SelectListItem() {Text = "SIP",Value = "1"},
+                                            new SelectListItem() {Text = "Lumpsump",Value = "2" }
+                                            }, "", new { @class = "with-icon required" })
+
+                                   
+            </div>
+             <div class="form-group">
+                  <div class="submit-button span9">
+                   <input type="submit" name="yit_sendemail" value="Send Enquiry" class="sendmail" />
+                   <div class="clear"></div>
+                   </div>
+              </div>
+                }
+            </div>
+         
+            <!-- END CONTENT -->
+
+            <!-- START SIDEBAR -->
+            <div id="sidebar-contact" class="span3 sidebar group">
+                <div class="widget-first widget contact-info">
+                    <h3>Contacts</h3>
+
+                    <div class="sidebar-nav">
+                        <ul>
+
+                            <li>
+                                <i class="icon-map-marker" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span>Address:</span> Office No 201,Laxmi Plaza
+                            </li>
+                            <li>
+                                <i class="icon-map-marker" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span></span>Old Mumbai-Pune Highway,Kasarwadi
+                            </li>
+                            <li>
+                                <i class="icon-map-marker" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span></span>Pune-411012
+                            </li>
+
+                            <li>
+                                <i class="icon-phone" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span>Mobile:</span> +91 7720908787
+                            </li>
+
+
+
+                            <li>
+                                <i class="icon-envelope" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span>Email:</span> admin@proinvesta.in
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                @*  <div class="widget-last widget last-tweets">
+
+                            <div class="list-tweets-2"></div>
+                            <p id="follow-twitter">
+                                <a href="https://twitter.com/intent/user?screen_name=yit" target="_blank">
+                                    Follow us on Twitter &rarr;
+                                </a>
+                            </p>
+                        </div>*@
+            </div>
+            <!-- END SIDEBAR -->
+        </div>
+    </div>
+</div>
+<!-- END PRIMARY -->

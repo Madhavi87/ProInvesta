@@ -1,0 +1,194 @@
+﻿@model ProInvesta.Models.Enquiry
+
+@{
+    ViewBag.Title = "ContactUS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@if (ViewBag.SuccessMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.SuccessMsg", "success");
+        });
+    </script>
+}
+
+<!-- START PAGE META -->
+<div id="page-meta" class="group">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <!-- TITLE -->
+                <div class="title">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PAGE META -->
+
+<!-- START MAP -->
+ 
+<!-- START PRIMARY -->
+<div id="primary" class="sidebar-right">
+    <div class="container group">
+        <div class="row">
+           
+            <!-- START CONTENT -->
+            <div id="content-page" class="span9 content group">
+                @if (@TempData["Success"] != "" && @TempData["Success"]=="added")
+                 {
+                 <div id="alert" class="alert alert-success" >             
+                            <strong>Thank you!</strong> Your Enquiry has been submitted. 
+                        </div>
+                 }
+                 <h2>@Request.QueryString["LoanType"] Loan Enquiry</h2>
+                @using (Html.BeginForm("Enquiry", "Enquiry", FormMethod.Post))
+                {
+                    
+               <div style="display:none">   
+                   @Html.TextBoxFor(model => model.LoanType, new { @Value = @Request.QueryString["LoanType"], @onkeydown="alert('hi')"})
+               </div>
+			   <div class="form-group">
+					 
+					<label for="Name">
+					Name<span style="color:red">*</span>
+                     </label>
+                   
+					 @Html.TextBoxFor(model => model.Name,  new { @class="form-control"})
+                     @Html.ValidationMessageFor(model => model.Name,null,new {@class="text-danger",@style="color:red"})
+                   
+				</div>
+                <div class="form-group">
+					 
+					<label for="Mobile">
+						Mobile<span style="color:red">*</span>
+					</label>
+					@Html.TextBoxFor(model => model.Mobile)
+                    @Html.ValidationMessageFor(model => model.Mobile,null,new {@class="text-danger",@style="color:red"})
+				</div>
+               <div class="form-group">
+					 
+					<label for="exampleInputEmail1">
+						Email<span style="color:red">*</span>
+					</label>
+
+					 @Html.TextBoxFor(model => model.Email,  new { @class="form-control"})
+                     @Html.ValidationMessageFor(model => model.Email,null,new {@class="text-danger",@style="color:red"})
+
+                    
+				</div>
+                <div class="form-group">
+					 
+					<label for="exampleInputEmail1">
+						City
+					</label>
+
+					 @Html.TextBoxFor(model => model.city)
+                   
+				</div>
+                <div class="form-group">
+					 
+					<label for="exampleInputEmail1">
+						Loan Requirement Amount<span style="color:red">*</span>
+					</label>
+
+					 @Html.TextBoxFor(model => model.Loan_Req_Amnt, new { @class="form-control"})
+                     @Html.ValidationMessageFor(model => model.Loan_Req_Amnt,null,new {@class="text-danger",@style="color:red"})
+
+                  
+				</div>
+                
+                <div class="form-group">
+					 
+					<label for="exampleInputEmail1">
+						Preferred Bank<span style="color:red">*</span>
+					</label>
+                     @Html.DropDownListFor(model => model.Preferred_Bank, new[] {
+                                            new SelectListItem() {Text = "HDFC",Value = "1"},
+                                            new SelectListItem() {Text = "AXIS",Value = "2" }
+                                            }, "")
+                     @Html.ValidationMessageFor(model => model.Preferred_Bank,null,new {@class="text-danger",@style="color:red"})
+
+
+				</div>
+                <div class="form-group">
+                 @if (@Request.QueryString["LoanType"] == "Home")
+                                    {
+                                    <label for="Property Type">
+                                       Property Type<span style="color:red">*</span>
+                                    </label>
+
+                                       @Html.DropDownListFor(model => model.Prop_type, new[] {
+                                            new SelectListItem() {Text = "Ready for Posession",Value = "1"},
+                                            new SelectListItem() {Text = "Under Construction",Value = "2" }
+                                            }, "")
+                                      
+
+                                    }
+            </div>
+             <div>
+                   <input type="submit" name="yit_sendemail" value="Send Enquiry" class="btn btn-primary" />
+                   <div class="clear"></div>
+
+             </div>
+                }
+            </div>
+         
+            <!-- END CONTENT -->
+
+            <!-- START SIDEBAR -->
+            <div id="sidebar-contact" class="span3 sidebar group">
+                <div class="widget-first widget contact-info">
+                    <h3>Contacts</h3>
+
+                    <div class="sidebar-nav">
+                        <ul>
+
+                            <li>
+                                <i class="icon-map-marker" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span>Address:</span> Office No 201,Laxmi Plaza
+                            </li>
+                            <li>
+                                <i class="icon-map-marker" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span></span>Old Mumbai-Pune Highway,Kasarwadi
+                            </li>
+                            <li>
+                                <i class="icon-map-marker" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span></span>Pune-411012
+                            </li>
+
+                            <li>
+                                <i class="icon-phone" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span>Mobile:</span> +91 7720908787
+                            </li>
+
+
+
+                            <li>
+                                <i class="icon-envelope" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span>Email:</span> admin@proinvesta.in
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                @*  <div class="widget-last widget last-tweets">
+
+                            <div class="list-tweets-2"></div>
+                            <p id="follow-twitter">
+                                <a href="https://twitter.com/intent/user?screen_name=yit" target="_blank">
+                                    Follow us on Twitter &rarr;
+                                </a>
+                            </p>
+                        </div>*@
+            </div>
+            <!-- END SIDEBAR -->
+        </div>
+    </div>
+</div>
+<!-- END PRIMARY -->

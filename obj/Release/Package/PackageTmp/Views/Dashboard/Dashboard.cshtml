@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashLayout.cshtml";
+}
+
+<h2>Admin Dashboard</h2>
+
+<div id="primary" class="sidebar-left">
+    <div class="container group">
+        <div class="row">
+            <!-- START CONTENT -->
+            <div id="content-page" class="span9 content group">
+                    <div id="data" style="width:90%; margin:0 auto;">
+                        <div id="enquiry">
+                        <table id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Loan Requirement Amount</th>
+                                    <th>Preferred Bank</th>
+                                    <th>Property Type</th>
+                                    <th>City</th>
+                                    <th>Mobile</th>
+                                    <th>Loan Type</th>
+                                </tr>
+                            </thead>
+                        </table>
+                       </div>
+                        <div id="menquiry">
+                      <table id="mutualfund">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Mobile</th>
+                                    <th>Email</th>
+                                    <th>Mutual Fund Type</th>
+                                    <th>Preferred Bank</th>
+                                    <th>city</th>
+                                </tr>
+                            </thead>
+                        </table>
+                            </div>
+                        <div id="cenquiry">
+                        <table id="contact">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
+                                    <th>Phone</th>
+                                            
+                                </tr>
+                            </thead>
+                        </table>
+                            </div>
+                    </div>
+                </div>
+             <!-- START SIDEBAR -->
+               <div id="sidebar-contact" class="span3 sidebar group">
+                <div class="widget-first widget contact-info">
+                 
+
+                    <div class="sidebar-nav">
+                        <ul class="menu">
+                            <li>
+                                <a href="#" onclick="LoadEnquiry()">Load Enquiries</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="LoadMutualFund()">Load Mutual Fund Enquiries</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="LoadContact()">Load Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+            </div>
+        </div>
+    </div>
+
+@* Load datatable css *@
+<link href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section Scripts{
+    @* Load DataTable js here *@
+    <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    <script>
+       
+        function LoadEnquiry() {
+            $("#cenquiry").hide();
+            $("#enquiry").show();
+            $("#menquiry").hide();
+            $("#myTable").DataTable().destroy();
+            $("#myTable").DataTable({
+                "processing": true, // for show progress bar
+                "serverSide": true, // for process server side
+                "filter": false, // this is for disable filter (search box)
+                "orderMulti": false, // for disable multiple column at once
+                "ajax": {
+                    "url": "/Dashboard/LoadData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                        { "data": "Name", "autoWidth": true },
+                        { "data": "Loan_Req_Amnt", "autoWidth": true },
+                        { "data": "Preferred_Bank", "autoWidth": true },
+                        { "data": "Prop_type", "autoWidth": true },
+                        { "data": "city", "autoWidth": true },
+                        { "data": "Mobile", "autoWidth": true },
+                        { "data": "LoanType", "autoWidth": true },
+                ]
+            });
+        }
+        function LoadMutualFund() {
+            $("#cenquiry").hide();
+            $("#enquiry").hide();
+            $("#menquiry").show();
+            $("#mutualfund").DataTable().destroy();
+            
+              $("#mutualfund").DataTable({
+               "processing": true, // for show progress bar
+               "serverSide": true, // for process server side
+               "filter": false, // this is for disable filter (search box)
+               "orderMulti": false, // for disable multiple column at once
+               "ajax": {
+                   "url": "/Dashboard/LoadMutualFund",
+                   "type": "POST",
+                   "datatype": "json"
+               },
+               "columns": [
+                       { "data": "Name", "autoWidth": true },
+                       { "data": "Mobile", "autoWidth": true },
+                       { "data": "Email", "autoWidth": true },
+                       { "data": "Mutual_Fund_Type", "autoWidth": true },
+                       { "data": "Preferred_Bank", "autoWidth": true },
+                       { "data": "city", "autoWidth": true },
+
+               ]
+           });
+        }
+        function LoadContact() {
+            $("#cenquiry").show();
+            $("#enquiry").hide();
+            $("#menquiry").hide();
+            $("#contact").DataTable().destroy();
+            $("#contact").DataTable({
+                "processing": true, // for show progress bar
+                "serverSide": true, // for process server side
+                "filter": false, // this is for disable filter (search box)
+                "orderMulti": false, // for disable multiple column at once
+                "ajax": {
+                    "url": "/Dashboard/LoadContact",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns": [
+                        { "data": "Name", "autoWidth": true },
+                        { "data": "Email", "autoWidth": true },
+                        { "data": "Message", "autoWidth": true },
+                        { "data": "Phone", "autoWidth": true }
+                ]
+            });
+        }
+        $(document).ready(function () {
+            $("#enquiry").hide();
+            $("#menquiry").hide();
+            $("#cenquiry").hide();
+
+            $("ul.menu li a:first").click();
+               
+        });
+    </script>
+}
+

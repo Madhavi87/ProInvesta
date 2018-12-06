@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A34082_proinvestaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DB_A34082_proinvestaModelStoreContainer">
+    <EntitySet Name="ContactUs" EntityType="DB_A34082_proinvestaModel.Store.ContactUs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Enquiry" EntityType="DB_A34082_proinvestaModel.Store.Enquiry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Loan" EntityType="DB_A34082_proinvestaModel.Store.Loan" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoanData" EntityType="DB_A34082_proinvestaModel.Store.LoanData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MutualFundEnquiry" EntityType="DB_A34082_proinvestaModel.Store.MutualFundEnquiry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="DB_A34082_proinvestaModel.Store.Users" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ContactUs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Message" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Enquiry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Loan_Req_Amnt" Type="nvarchar" MaxLength="150" />
+    <Property Name="Preferred_Bank" Type="nvarchar" MaxLength="100" />
+    <Property Name="Prop_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="LoanType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Loan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Bank Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Interest Rate Range" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Processing Fee Range" Type="nvarchar" MaxLength="100" />
+    <Property Name="Loan Amount" Type="nvarchar" MaxLength="100" />
+    <Property Name="Tenure Range" Type="nvarchar" MaxLength="100" />
+    <Property Name="LoanType" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="LoanData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Loan_No" Type="int" Nullable="false" />
+    <Property Name="Loan_Amount" Type="decimal" />
+    <Property Name="Login_Date" Type="datetime" />
+    <Property Name="Mobile_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sourcing_Branch" Type="nvarchar" MaxLength="50" />
+    <Property Name="Rinn_Raksha" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sourcing_Person" Type="nvarchar" MaxLength="50" />
+    <Property Name="Loan_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MutualFundEnquiry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Loan_Amnt" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mutual_Fund_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Preferred_Bank" Type="nvarchar" MaxLength="50" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+</Schema>

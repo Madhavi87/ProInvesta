@@ -1,0 +1,178 @@
+﻿@model IEnumerable<ProInvesta.Models.Enquiry>
+@{
+    ViewBag.Title = "Enquiry";
+    if (ViewBag.Title == "Proinvesta")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+    else{
+    Layout = "~/Views/Shared/_DashLayout.cshtml";
+    }
+}
+
+<style>
+    tfoot {
+        display: table-header-group;
+    }
+</style>
+
+<script type="text/javascript">
+    $ = jQuery.noConflict();
+    $(document).ready(function () {
+
+        $('#dataTables-example tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" />');
+        });
+
+
+        var table = $('#dataTables-example').DataTable({ "sPaginationType": "full_numbers" });
+
+        table.columns().every(function () {
+            var that = this;
+
+            $('input', this.footer()).on('keyup change', function () {
+                if (that.search() !== this.value) {
+                    that
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+
+    });
+
+
+</script>
+
+
+
+<div id="primary" class="sidebar-left">
+    <div class="container group">
+        <div class="row">
+            <!-- START CONTENT -->
+            <div id="content-page" class="span9 content group">
+  
+              <div class="table-responsive tblbackground" style="padding:15px">
+
+                 <table class="table table-responsive table-bordered tblfont" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.Label("Name")
+                                </th>
+                                <th>
+                                    @Html.Label("City")
+                                </th>
+                                <th>
+                                    @Html.Label("Mobile")
+                                </th>
+                                <th>
+                                    @Html.Label("Preferred Bank")
+                                </th>
+                                <th>
+                                    @Html.Label("Property Type")
+                                </th>
+                                 <th>
+                                    @Html.Label("Loan Type")
+                                </th> 
+                                <th>
+                                    @Html.Label("Loan Requirement Amount")
+                                </th>
+               
+                            </tr>
+                        </thead>
+
+                    <tfoot>
+                               <tr>
+                            <th>
+                                @Html.Label("Name")
+                            </th>
+                            <th>
+                                @Html.Label("City")
+                            </th>
+                            <th>
+                                @Html.Label("Mobile")
+                            </th>
+                            <th>
+                                @Html.Label("Preferred Bank")
+                            </th>
+                            <th>
+                                @Html.Label("Property Type")
+                            </th>
+                             <th>
+                                @Html.Label("Loan Type")
+                            </th> 
+                            <th>
+                                @Html.Label("Loan Requirement Amount")
+                            </th>
+                    
+                        </tr>
+
+                    </tfoot>
+
+
+                    <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+
+                                            <td class="tdtarget">
+                                 
+                                                @Html.DisplayFor(modelItem => item.Name)
+
+                                                </td>
+                            
+                                            <td class="tdtarget">
+                                 
+                                                @Html.DisplayFor(modelItem => item.city)
+
+                                                </td>
+                                            <td class="tdtarget">
+                                 
+                                                @Html.DisplayFor(modelItem => item.Mobile)
+
+                                                </td>
+                                            <td class="tdtarget">
+                                 
+                                                @Html.DisplayFor(modelItem => item.Preferred_Bank)
+
+                                                </td>
+                                             <td class="tdtarget">
+                                 
+                                                @Html.DisplayFor(modelItem => item.Prop_type)
+
+                                                </td>
+                                            <td class="tdtarget">
+                                 
+                                                @Html.DisplayFor(modelItem => item.LoanType)
+
+                                                </td>
+                                             <td class="tdtarget">
+                                 
+                                                @Html.DisplayFor(modelItem => item.Loan_Req_Amnt)
+
+                                                </td>
+                                            </tr>
+                
+                                         }
+                                      }
+
+                            </tbody>
+                    </table>
+                 </div>
+                      
+                
+                </div>
+             <!-- START SIDEBAR -->
+    
+            <!-- END SIDEBAR -->
+            </div>
+        </div>
+    </div>
+
+

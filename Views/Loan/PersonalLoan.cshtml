@@ -1,0 +1,158 @@
+﻿@model IEnumerable<ProInvesta.Models.Loan>
+@{
+    ViewBag.Title = "Proinvesta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- START Layout -->
+<div class="top-border span12"></div>
+
+<!-- START PRIMARY -->
+<div id="primary" class="sidebar-no">
+    <div class="container group">
+        <div class="row">
+            @if (ViewBag.eflag == true) {
+                <div class="alert alert-success" >             
+                    <strong>Thank you!</strong> Your enquiry has been submitted. 
+                </div>
+            }
+                    
+            <!-- START CONTENT -->
+            <div id="content-home" class="span12 content group">
+                <h2>Personal Loan</h2>
+                <div class="page type-page status-publish hentry group">
+                    
+                    <table class="table">
+                       
+                        <thead>
+                            <tr>
+                                <th>Bank Name
+                                </th>
+                                <th>Interest Rate Range
+                                </th>
+                                <th>Processing Fee Range
+                                </th>
+                                <th>Loan Amount</th>
+                                <th>Tenure Range </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          @foreach (var item in Model) {
+
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Bank_Name)
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.Interest_Rate_Range)
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.Processing_Fee_Range)
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.Loan_Amount)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Tenure_Range)</td>
+                            </tr>
+                          }
+                        </tbody>
+                    </table>
+                      <div class="row">
+                        <a class="btn btn-primary" href="/Enquiry/Enquiry?LoanType=Personal">Enquiry</a>
+                    </div> 
+
+
+
+
+
+                    <!-- <h2 style="text-align: center">Our customers say..</h2>
+
+                                <div class="testimonials-flexslider">
+                                    <ul class="slides">
+                                        <li>
+                                            <blockquote>
+                                                <p>
+                                                    <a href="#">&rdquo;Quisque turpis purus, semper luctus molestie
+                                                    elementum, egestas et nibh. Nulla in sapien elit, et eleifend risus. Quisque at elit
+                                                    id libero vulputate facilisis. Suspendisse potenti. Vestibulum malesuada molestie
+                                                    rutrum. Aenean eget [...]&rdquo;
+                                                    </a>
+                                                </p>
+                                            </blockquote>
+
+                                            <p class="meta">
+                                                <strong>
+                                                    <a href="testimonial-detail.html" class="name">Nando Pappalardo</a>
+                                                </strong>-
+                                            <a href="http://www.netsons.com">www.netsons.com
+                                            </a>
+                                            </p>
+                                        </li>
+
+                                        <li>
+                                            <blockquote>
+                                                <p>
+                                                    <a href="testimonial-detail.html">&rdquo;Quisque turpis purus, semper luctus molestie
+                                                    elementum, egestas et nibh. Nulla in sapien elit, et eleifend risus. Quisque at elit
+                                                    id libero vulputate facilisis. Suspendisse potenti. Vestibulum malesuada molestie
+                                                    rutrum. Aenean eget [...]&rdquo;
+                                                    </a>
+                                                </p>
+                                            </blockquote>
+
+                                            <p class="meta">
+                                                <strong>
+                                                    <a href="testimonial-detail.html" class="name">Sara Presenti
+                                                    </a>
+                                                </strong>-
+                                            <a href="http://www.netsons.com">www.netsons.com
+                                            </a>
+                                            </p>
+                                        </li>
+
+                                        <li>
+                                            <blockquote>
+                                                <p>
+                                                    <a href="testimonial-detail.html">&rdquo;Quisque turpis purus, semper luctus molestie
+                                                    elementum, egestas et nibh. Nulla in sapien elit, et eleifend risus. Quisque at elit
+                                                    id libero vulputate facilisis. Suspendisse potenti. Vestibulum malesuada molestie
+                                                    rutrum. Aenean eget [...]&rdquo;
+                                                    </a>
+                                                </p>
+                                            </blockquote>
+                                            <p class="meta">
+                                                <strong>
+                                                    <a href="testimonial-detail.html" class="name">Nicola Mustone
+                                                    </a>
+                                                </strong>-
+                                            <a href="http://www.netsons.com">www.netsons.com
+                                            </a>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                    <div class="prev"></div>
+                                    <div class="next"></div>
+                                </div>
+
+                                <script type="text/javascript">
+                                    jQuery(function ($) {
+                                        var animation = $.browser.msie || $.browser.opera ? 'fade' : 'slide';
+                                        $('.testimonials-flexslider').flexslider({
+                                            animation: animation,
+                                            slideshowSpeed: 5000,
+                                            animationSpeed: 500,
+                                            touch: false,
+                                            controlNav: false,
+                                            directionNav: true
+                                        });
+                                    });
+                                </script>-->
+
+                </div>
+                <!-- START COMMENTS -->
+                <div id="comments"></div>
+                <!-- END COMMENTS -->
+            </div>
+            <!-- END CONTENT -->
+
+            <!-- START EXTRA CONTENT -->
+            <!-- END EXTRA CONTENT -->
+        </div>
+    </div>
+</div>
+<!-- END PRIMARY -->
+<!-- End Layout -->

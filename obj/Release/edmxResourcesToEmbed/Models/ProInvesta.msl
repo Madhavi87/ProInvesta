@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="proinvestaModelStoreContainer" CdmEntityContainer="proinvestaEntities">
+    <EntitySetMapping Name="ContactUs">
+      <EntityTypeMapping TypeName="proinvestaModel.ContactU">
+        <MappingFragment StoreEntitySet="ContactUs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enquiries">
+      <EntityTypeMapping TypeName="proinvestaModel.Enquiry">
+        <MappingFragment StoreEntitySet="Enquiry">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Loan_Req_Amnt" ColumnName="Loan_Req_Amnt" />
+          <ScalarProperty Name="Preferred_Bank" ColumnName="Preferred_Bank" />
+          <ScalarProperty Name="Prop_type" ColumnName="Prop_type" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loans">
+      <EntityTypeMapping TypeName="proinvestaModel.Loan">
+        <MappingFragment StoreEntitySet="Loan">
+          <ScalarProperty Name="Bank_Name" ColumnName="Bank Name" />
+          <ScalarProperty Name="Interest_Rate_Range" ColumnName="Interest Rate Range" />
+          <ScalarProperty Name="Processing_Fee_Range" ColumnName="Processing Fee Range" />
+          <ScalarProperty Name="Loan_Amount" ColumnName="Loan Amount" />
+          <ScalarProperty Name="Tenure_Range" ColumnName="Tenure Range" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MutualFundEnquiries">
+      <EntityTypeMapping TypeName="proinvestaModel.MutualFundEnquiry">
+        <MappingFragment StoreEntitySet="MutualFundEnquiry">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Loan_Amnt" ColumnName="Loan_Amnt" />
+          <ScalarProperty Name="Mutual_Fund_Type" ColumnName="Mutual_Fund_Type" />
+          <ScalarProperty Name="Preferred_Bank" ColumnName="Preferred_Bank" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="proinvestaModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

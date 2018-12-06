@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="proinvestaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="proinvestaModelStoreContainer">
+    <EntitySet Name="ContactUs" EntityType="proinvestaModel.Store.ContactUs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Enquiry" EntityType="proinvestaModel.Store.Enquiry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Loan" EntityType="proinvestaModel.Store.Loan" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MutualFundEnquiry" EntityType="proinvestaModel.Store.MutualFundEnquiry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="proinvestaModel.Store.Users" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ContactUs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Message" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Enquiry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Loan_Req_Amnt" Type="nvarchar" MaxLength="150" />
+    <Property Name="Preferred_Bank" Type="nvarchar" MaxLength="100" />
+    <Property Name="Prop_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="LoanType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Loan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Bank Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Interest Rate Range" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Processing Fee Range" Type="nvarchar" MaxLength="100" />
+    <Property Name="Loan Amount" Type="nvarchar" MaxLength="100" />
+    <Property Name="Tenure Range" Type="nvarchar" MaxLength="100" />
+    <Property Name="LoanType" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="MutualFundEnquiry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Loan_Amnt" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mutual_Fund_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Preferred_Bank" Type="nvarchar" MaxLength="50" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6013: The table/view 'DB_A34082_proinvesta.dbo.Bank Name' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Bank Name">
+        <Property Name="Bank Name" Type="nvarchar" MaxLength="50" />
+      </EntityType>-->
+</Schema>

@@ -1,0 +1,117 @@
+﻿@model ProInvesta.Models.LoanData
+@{
+    ViewBag.Title = "Edit Loan";
+    if (ViewBag.Title == "Proinvesta")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_DashLayout.cshtml";
+    }
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#Login_Date').datepicker({
+            dateFormat: 'dd-mm-yy',
+            changeYear: true, changeMonth: true,
+        });
+
+
+    });
+</script>
+
+<section class="content-header">
+    <h1 class="headingfont">Loan Details</h1>
+
+</section>
+@if (ViewBag.SuccessMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.SuccessMsg", "success");
+        });
+    </script>
+}
+
+<section class="content">
+ @using (Html.BeginForm())
+        {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="alert" style="color: red; display: none; margin-left: 10px;">*Please fill mandatory fields</div>
+    <fieldset>
+
+        <div class="row no-margin">
+
+            <div class="col-md-3">
+                <label class="headinglabel">Name of Customer</label>
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control txttarget" })
+            
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Los No.</label>
+                @Html.TextBoxFor(model => model.Loan_No, new { @class = "form-control txttarget" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Loan Amount </label>
+                @Html.TextBoxFor(model => model.Loan_Amount, new { @class = "form-control txttarget" })
+            </div>
+
+            <div class="col-md-3">
+                <label class=" headinglabel">Login Date</label>
+                @Html.TextBoxFor(model => model.Login_Date, new { @class = "form-control" })
+            </div>
+
+
+        </div>
+        <div class="row no-margin">
+
+            <div class="col-md-3">
+                <label class=" headinglabel">Mobile No</label>
+                @Html.TextBoxFor(model => model.Mobile_No, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Sourcing Branch</label>
+                @Html.TextBoxFor(model => model.Sourcing_Branch, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                <label class=" headinglabel">Rinn Raksha</label>
+               @Html.DropDownListFor(model => model.Rinn_Raksha, ViewData["RinnRaksha"] as List<SelectListItem>,new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-3">
+                <label class=" headinglabel">Name of Sourcing Person</label>
+                @Html.TextBoxFor(model => model.Sourcing_Person, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+        <div class="row no-margin">
+            <div class="col-md-3">
+                <label class="headinglabel">Loan Type</label>
+               @Html.DropDownListFor(model => model.Loan_Type, ViewData["LoanType"] as List<SelectListItem>,new { @class = "form-control" })
+            </div>
+            
+        </div>
+        <div class="row no-margin" style="padding-top: 10px"></div>
+        <div class="row no-margin" style="padding-top: 10px">
+            <div class="col-md-12">
+
+                <input type="submit" value="Save" class="btn btn-primary btnwidth" id="btnsave" />
+
+                &nbsp;
+                <a href='@Url.Action("Listing", "Enquiry")' class="btn btn-primary btnwidth" data-toggle="tooltip" data-placement="right" title="Click here">Cancel</a>
+
+            </div>
+        </div>
+
+
+    </fieldset>
+    }
+</section>

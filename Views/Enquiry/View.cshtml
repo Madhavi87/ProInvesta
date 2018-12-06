@@ -1,0 +1,111 @@
+﻿@model ProInvesta.Models.LoanData
+@{
+    ViewBag.Title = "Edit Loan";
+    if (ViewBag.Title == "Proinvesta")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_DashLayout.cshtml";
+    }
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+    });
+</script>
+
+<section class="content-header">
+    <h1 class="headingfont">Loan Details</h1>
+
+</section>
+@if (ViewBag.SuccessMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.SuccessMsg", "success");
+        });
+    </script>
+}
+
+<section class="content">
+    @*@using (Html.BeginForm())
+        {*@
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="alert" style="color: red; display: none; margin-left: 10px;">*Please fill mandatory fields</div>
+    <fieldset>
+
+        <div class="row no-margin">
+
+            <div class="col-md-3">
+                <label class="headinglabel">Name of Customer: </label>
+               <span class="headinglabel"> @Html.DisplayTextFor(model => model.Name)</span>
+            
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Los No.: </label>
+               <span class="headinglabel"> @Html.DisplayTextFor(model => model.Loan_No)</span>
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Loan Amount: </label>
+                <span class="headinglabel">@Html.DisplayTextFor(model => model.Loan_Amount)</span>
+            </div>
+
+            <div class="col-md-3">
+                <label class=" headinglabel">Login Date: </label>
+              <span class="headinglabel">  @Html.DisplayTextFor(model => model.Login_Date)</span>
+            </div>
+
+
+        </div>
+        <div class="row no-margin">
+
+            <div class="col-md-3">
+                <label class=" headinglabel">Mobile No: </label>
+               <span class="headinglabel"> @Html.DisplayTextFor(model => model.Mobile_No)</span>
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Sourcing Branch: </label>
+              <span class="headinglabel">  @Html.DisplayTextFor(model => model.Sourcing_Branch)</span>
+            </div>
+            <div class="col-md-3">
+                <label class=" headinglabel">Rinn Raksha: </label>
+              <span class="headinglabel"> @Html.DisplayTextFor(model => model.Rinn_Raksha)</span>
+
+            </div>
+            <div class="col-md-3">
+                <label class=" headinglabel">Name of Sourcing Person: </label>
+               <span class="headinglabel"> @Html.DisplayTextFor(model => model.Sourcing_Person)</span>
+
+            </div>
+
+        </div>
+        <div class="row no-margin">
+            <div class="col-md-3">
+                <label class="headinglabel">Loan Type: </label>
+              <span class="headinglabel"> @Html.DisplayTextFor(model => model.Loan_Type)</span>
+            </div>
+            
+        </div>
+        <div class="row no-margin" style="padding-top: 10px"></div>
+        <div class="row no-margin" style="padding-top: 10px">
+            <div class="col-md-12">
+
+                &nbsp;
+                <a href='@Url.Action("Listing", "Enquiry")' class="btn btn-primary btnwidth" data-toggle="tooltip" data-placement="right" title="Click here">Cancel</a>
+
+            </div>
+        </div>
+
+
+    </fieldset>
+    @*}*@
+</section>

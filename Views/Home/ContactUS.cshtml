@@ -1,0 +1,237 @@
+﻿@model ProInvesta.Models.ContactU
+@{
+    ViewBag.Title = "ContactUS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<!-- START PAGE META -->
+<div id="page-meta" class="group">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <!-- TITLE -->
+                <div class="title">
+                    <div class="icontitle">
+                        <img src="../Content/images/contact-form/contact_icon.png" alt="title" />
+                    </div>
+                    <div class="title-with-icon">
+                        <h1>Get in touch</h1>
+                    </div>
+                </div>
+
+                <!-- BREDCRUMB -->
+                <div class="breadcrumbs">
+                    <span class="before-text">You are here:</span>
+
+                    <p id="yit-breadcrumb" itemprop="breadcrumb">
+                        <a class="home" href="index.html">Home Page</a> |
+                                <a class="no-link current" href="#">Get in touch</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PAGE META -->
+
+<!-- START MAP -->
+<div id="map">
+    @* <iframe
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+                src="http://maps.google.it/maps?ll=41.891288,12.502098&spn=0.209059,0.338173&t=m&z=12&amp;output=embed">
+            </iframe>*@
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.4495931226493!2d73.82608581489387!3d18.598837137363454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b897a37ebd8b%3A0x53c2cdad70b086e!2sLaxmi+Plaza%2C+Kundan+Nagar%2C+Agrasen+Nagar+Society%2C+Seva+Nagar%2C+Dapodi%2C+Pimpri-Chinchwad%2C+Maharashtra+411034!5e0!3m2!1sen!2sin!4v1524932691330" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+  
+    <div class="map-overlay-top"></div>
+    <div class="map-overlay-bottom"></div>
+
+</div>
+<!-- END MAP -->
+
+<!-- START SLOGAN -->
+<div class="slogan">
+    <h2>SAY HELLO. WE'D LOVE TO MEET YOU.</h2>
+
+    <h3>seriously.</h3>
+</div>
+<!-- END SLOGAN -->
+
+<!-- START PRIMARY -->
+<div id="primary" class="sidebar-right">
+    <div class="container group">
+        <div class="row">
+            <!-- START CONTENT -->
+            <div id="content-page" class="span9 content group">
+                @if (@TempData["flag"] != "" && @TempData["flag"]=="added")
+                 {
+                 <div id="alert" class="alert alert-success" >             
+                            <strong>Thank you!</strong> Your contact has been added. 
+                        </div>
+                 }
+                <div class="page type-page status-publish hentry group">
+                    @using (Html.BeginForm("ContactUS", "Home", FormMethod.Post, new { @class = "contact-form row" }))
+                    {
+                    <!--<form class="contact-form row" name="contactform" method="post" enctype="multipart/form-data">-->
+
+                        <div class="usermessagea"></div>
+                        <fieldset>
+
+                            <ul>
+
+                                <li class="text-field with-icon span3">
+
+                                    <label for="name-contact-form">
+                                        Name<span style="color:red">*</span>
+                                    </label>
+
+                                    <div class="input-prepend">
+                                       <span class="add-on">
+                                            <img src="images/contact-form/user.png" alt="" title="" /></span>
+                                        @Html.TextBoxFor(model => model.Name, new { @class = "with-icon required" })<br />
+                                        @Html.ValidationMessageFor(model => model.Name,null,new {@class="text-danger",@style="color:red"})
+                                       <!-- <input type="text" name="yit_contact[name]" id="name-contact-form" class="with-icon required" value="" />-->
+                                    </div>
+
+                                    <div class="msg-error"></div>
+
+                                    <div class="clear"></div>
+                                </li>
+
+                                <li class="text-field with-icon span3">
+
+                                    <label for="email-contact-form">
+                                        Email<span style="color:red">*</span>
+                                    </label>
+
+                                    <div class="input-prepend">
+                                      <span class="add-on">
+                                            <img src="images/contact-form/envelope.png" alt="" title="" />
+                                        </span>
+                                          @Html.TextBoxFor(model => model.Email, new { @class = "with-icon required" })<br />
+                                          @Html.ValidationMessageFor(model => model.Email,null,new {@class="text-danger",@style="color:red"})
+                                       <!-- <input type="text" name="yit_contact[email]" id="email-contact-form" class="with-icon required email-validate" value="" />-->
+                                    </div>
+
+                                    <div class="msg-error"></div>
+
+                                    <div class="clear"></div>
+                                </li>
+
+                                <li class="text-field with-icon span3">
+
+                                    <label for="phone-contact-form">
+                                       Phone
+                                    </label>
+
+                                    <div class="input-prepend">
+                                        <span class="add-on">
+                                            <img src="images/contact-form/phone.png" alt="" title="" />
+                                        </span>
+                                        <!--<input type="text" name="yit_contact[phone]" id="phone-contact-form" class="with-icon" value="" />-->
+                                       @Html.TextBoxFor(model => model.Phone, new { @class = "with-icon required" })
+
+                                    </div>
+
+                                    <div class="msg-error"></div>
+
+                                    <div class="clear"></div>
+                                </li>
+
+                                <li class="textarea-field with-icon span9">
+
+                                    <label for="message-contact-form">
+                                        <span class="mainlabel">Message</span>
+                                    </label>
+
+                                    <div class="input-prepend">
+                                      <span class="add-on">
+                                            <img src="images/contact-form/pencil.png" alt="" title="" />
+                                        </span>
+                                        @Html.TextAreaFor(model => model.Message, new { @class = "with-icon required" })
+                                      <!-- <textarea name="yit_contact[message]" id="message-contact-form" rows="8" cols="30" class="with-icon required"></textarea>-->
+                                    </div>
+
+                                    <div class="msg-error"></div>
+
+                                    <div class="clear"></div>
+                                </li>
+
+                                <li class="submit-button span9">
+                                    <input type="text" name="yit_bot" id="yit_bot" />
+                                    <input type="hidden" name="yit_action" value="sendemail" />
+                                    <input type="hidden" name="yit_referer" value="get-in-touch.html" />
+                                    <input type="hidden" name="id_form" value="4" />
+                                    <input type="submit" name="yit_sendemail" value="Send Message" class="sendmail alignright" />
+                                    <div class="clear"></div>
+                                </li>
+                            </ul>
+                        </fieldset>
+                   <!-- </form>-->
+                    }
+                    <script type="text/javascript">
+                        var messages_form_4 = {
+                            name: "Insert the name",
+                            email: "Insert a valid email",
+                            phone: "",
+                            message: "Insert a message"
+                        };
+                    </script>
+                </div>
+            </div>
+            <!-- END CONTENT -->
+
+            <!-- START SIDEBAR -->
+            <div id="sidebar-contact" class="span3 sidebar group">
+                <div class="widget-first widget contact-info">
+                    <h3>Contacts</h3>
+
+                    <div class="sidebar-nav">
+                        <ul>
+
+                            <li>
+                                <i class="icon-map-marker" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span>Address:</span> Office No 201,Laxmi Plaza
+                            </li>
+                            <li>
+                                <i class="icon-map-marker" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span></span>Old Mumbai-Pune Highway,Kasarwadi
+                            </li>
+                            <li>
+                                <i class="icon-map-marker" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span></span>Pune-411012
+                            </li>
+
+                            <li>
+                                <i class="icon-phone" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span>Mobile:</span> +91 7720908787
+                            </li>
+
+
+
+                            <li>
+                                <i class="icon-envelope" style="color: #000; font-size: 12px; width: 12px; height: 12px"></i>
+                                <span>Email:</span> admin@proinvesta.in
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                @*  <div class="widget-last widget last-tweets">
+
+                            <div class="list-tweets-2"></div>
+                            <p id="follow-twitter">
+                                <a href="https://twitter.com/intent/user?screen_name=yit" target="_blank">
+                                    Follow us on Twitter &rarr;
+                                </a>
+                            </p>
+                        </div>*@
+            </div>
+            <!-- END SIDEBAR -->
+        </div>
+    </div>
+</div>
+<!-- END PRIMARY -->

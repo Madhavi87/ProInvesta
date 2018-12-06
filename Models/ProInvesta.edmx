@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_A34082_proinvestaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DB_A34082_proinvestaModelStoreContainer">
+          <EntitySet Name="ContactUs" EntityType="DB_A34082_proinvestaModel.Store.ContactUs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Enquiry" EntityType="DB_A34082_proinvestaModel.Store.Enquiry" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Loan" EntityType="DB_A34082_proinvestaModel.Store.Loan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LoanData" EntityType="DB_A34082_proinvestaModel.Store.LoanData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MutualFundEnquiry" EntityType="DB_A34082_proinvestaModel.Store.MutualFundEnquiry" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="DB_A34082_proinvestaModel.Store.Users" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Message" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Enquiry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Loan_Req_Amnt" Type="nvarchar" MaxLength="150" />
+          <Property Name="Preferred_Bank" Type="nvarchar" MaxLength="100" />
+          <Property Name="Prop_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoanType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Loan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Bank Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Interest Rate Range" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Processing Fee Range" Type="nvarchar" MaxLength="100" />
+          <Property Name="Loan Amount" Type="nvarchar" MaxLength="100" />
+          <Property Name="Tenure Range" Type="nvarchar" MaxLength="100" />
+          <Property Name="LoanType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="LoanData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Loan_No" Type="int" Nullable="false" />
+          <Property Name="Loan_Amount" Type="decimal" />
+          <Property Name="Login_Date" Type="datetime" />
+          <Property Name="Mobile_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sourcing_Branch" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rinn_Raksha" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sourcing_Person" Type="nvarchar" MaxLength="50" />
+          <Property Name="Loan_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdby" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MutualFundEnquiry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Loan_Amnt" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mutual_Fund_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Preferred_Bank" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_A34082_proinvestaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_A34082_proinvestaEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ContactUs" EntityType="DB_A34082_proinvestaModel.ContactU" />
+          <EntitySet Name="Enquiries" EntityType="DB_A34082_proinvestaModel.Enquiry" />
+          <EntitySet Name="Loans" EntityType="DB_A34082_proinvestaModel.Loan" />
+          <EntitySet Name="LoanDatas" EntityType="DB_A34082_proinvestaModel.LoanData" />
+          <EntitySet Name="MutualFundEnquiries" EntityType="DB_A34082_proinvestaModel.MutualFundEnquiry" />
+          <EntitySet Name="Users" EntityType="DB_A34082_proinvestaModel.User" />
+        </EntityContainer>
+        <EntityType Name="ContactU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Message" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Enquiry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Loan_Req_Amnt" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Preferred_Bank" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Prop_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="city" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LoanType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Loan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Bank_Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Interest_Rate_Range" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Processing_Fee_Range" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Loan_Amount" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Tenure_Range" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LoanType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="LoanData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Loan_No" Type="Int32" Nullable="false" />
+          <Property Name="Loan_Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Login_Date" Type="DateTime" Precision="3" />
+          <Property Name="Mobile_No" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Sourcing_Branch" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Rinn_Raksha" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Sourcing_Person" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Loan_Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="createdby" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MutualFundEnquiry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Loan_Amnt" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Mutual_Fund_Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Preferred_Bank" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="city" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_A34082_proinvestaModelStoreContainer" CdmEntityContainer="DB_A34082_proinvestaEntities">
+          <EntitySetMapping Name="ContactUs">
+            <EntityTypeMapping TypeName="DB_A34082_proinvestaModel.ContactU">
+              <MappingFragment StoreEntitySet="ContactUs">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enquiries">
+            <EntityTypeMapping TypeName="DB_A34082_proinvestaModel.Enquiry">
+              <MappingFragment StoreEntitySet="Enquiry">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Loan_Req_Amnt" ColumnName="Loan_Req_Amnt" />
+                <ScalarProperty Name="Preferred_Bank" ColumnName="Preferred_Bank" />
+                <ScalarProperty Name="Prop_type" ColumnName="Prop_type" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loans">
+            <EntityTypeMapping TypeName="DB_A34082_proinvestaModel.Loan">
+              <MappingFragment StoreEntitySet="Loan">
+                <ScalarProperty Name="Bank_Name" ColumnName="Bank Name" />
+                <ScalarProperty Name="Interest_Rate_Range" ColumnName="Interest Rate Range" />
+                <ScalarProperty Name="Processing_Fee_Range" ColumnName="Processing Fee Range" />
+                <ScalarProperty Name="Loan_Amount" ColumnName="Loan Amount" />
+                <ScalarProperty Name="Tenure_Range" ColumnName="Tenure Range" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanDatas">
+            <EntityTypeMapping TypeName="DB_A34082_proinvestaModel.LoanData">
+              <MappingFragment StoreEntitySet="LoanData">
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Loan_No" ColumnName="Loan_No" />
+                <ScalarProperty Name="Loan_Amount" ColumnName="Loan_Amount" />
+                <ScalarProperty Name="Login_Date" ColumnName="Login_Date" />
+                <ScalarProperty Name="Mobile_No" ColumnName="Mobile_No" />
+                <ScalarProperty Name="Sourcing_Branch" ColumnName="Sourcing_Branch" />
+                <ScalarProperty Name="Rinn_Raksha" ColumnName="Rinn_Raksha" />
+                <ScalarProperty Name="Sourcing_Person" ColumnName="Sourcing_Person" />
+                <ScalarProperty Name="Loan_Type" ColumnName="Loan_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MutualFundEnquiries">
+            <EntityTypeMapping TypeName="DB_A34082_proinvestaModel.MutualFundEnquiry">
+              <MappingFragment StoreEntitySet="MutualFundEnquiry">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Loan_Amnt" ColumnName="Loan_Amnt" />
+                <ScalarProperty Name="Mutual_Fund_Type" ColumnName="Mutual_Fund_Type" />
+                <ScalarProperty Name="Preferred_Bank" ColumnName="Preferred_Bank" />
+                <ScalarProperty Name="city" ColumnName="city" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DB_A34082_proinvestaModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,78 @@
+﻿ @model ProInvesta.Models.ContactU
+
+                            <div class="widget-first widget span6 yit_quick_contact">
+                                <h3>Get in touch</h3>
+                                 
+                                  @using (Ajax.BeginForm("FooterPartial", "Home", new AjaxOptions { HttpMethod = "POST", OnSuccess = "", OnFailure = "" }, new { @class = "contact-form row" }))
+                                    {
+                               <!-- <form class="contact-form row" method="post" action="" enctype="multipart/form-data">-->
+
+                                    <div class="usermessagea"></div>
+                                    <fieldset>
+                                        <ul>
+                                            <li class="text-field with-icon span3">
+                                                <label>
+                                                    <span class="mainlabel">Name</span>
+                                                </label>
+
+                                                <div class="input-prepend">
+                                                    <span class="add-on">
+                                                        <img src="~/Content/images/footer/author-footer.png" alt="" title="" /></span>
+                                                   @Html.TextBoxFor(model => model.Name, new { @class= "with-icon required"})
+                                                   <!-- <input type="text" name="yit_contact[name]" class="with-icon required" value="" />-->
+                                                </div>
+                                                <div class="msg-error"></div>
+                                                <div class="clear"></div>
+                                            </li>
+
+                                            <li class="text-field with-icon span3">
+                                                <label>
+                                                    <span class="mainlabel">Email</span>
+                                                </label>
+
+                                                <div class="input-prepend">
+                                                    <span class="add-on">
+                                                        <img src="~/Content/images/footer/envelope-footer.png" alt="" title="" />
+                                                    </span>
+                                                   
+                                                    @Html.TextBoxFor(model => model.Email, new { @class= "with-icon required"})
+                                                   <!-- <input type="text" name="yit_contact[email]" class="with-icon required email-validate" value="" />-->
+                                                </div>
+                                                <div class="msg-error"></div>
+                                                <div class="clear"></div>
+                                            </li>
+
+                                            <li class="textarea-field with-icon span6">
+                                                <label>
+                                                    <span class="mainlabel">Message</span>
+                                                </label>
+
+                                                <div class="input-prepend">
+                                                    <span class="add-on">
+                                                        <img src="~/Content/images/footer/pencil-footer.png" alt="" title="" />
+                                                    </span>
+                                                    @Html.TextAreaFor(model => model.Message, new { @class= "with-icon required"})
+                                                   <!-- <textarea name="yit_contact[message]" rows="8" cols="30" class="with-icon required"></textarea>-->
+                                                </div>
+                                                <div class="msg-error"></div>
+                                                <div class="clear"></div>
+                                            </li>
+
+                                            <li class="submit-button span6">
+                                                <div style="position: absolute; left: -9999px;">
+                                                    <input type="text" name="email_check_2" id="email_check_2" value="" />
+                                                </div>
+                                                <input type="hidden" name="yit_action" value="sendemail" id="yit_action" />
+                                                <input type="hidden" name="yit_referer" value="index.html" />
+                                                <input type="hidden" name="id_form" value="228" />
+                                               
+                                              <input type="submit" name="yit_sendemail" value="SEND" class="sendmail alignright" />
+                                                <div class="clear"></div>
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+                              <!--  </form>-->
+                                  }
+
+                            </div>
+                      

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A34082_proinvestaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DB_A34082_proinvestaEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="ContactUs" EntityType="DB_A34082_proinvestaModel.ContactU" />
+    <EntitySet Name="Enquiries" EntityType="DB_A34082_proinvestaModel.Enquiry" />
+    <EntitySet Name="Loans" EntityType="DB_A34082_proinvestaModel.Loan" />
+    <EntitySet Name="LoanDatas" EntityType="DB_A34082_proinvestaModel.LoanData" />
+    <EntitySet Name="MutualFundEnquiries" EntityType="DB_A34082_proinvestaModel.MutualFundEnquiry" />
+    <EntitySet Name="Users" EntityType="DB_A34082_proinvestaModel.User" />
+  </EntityContainer>
+  <EntityType Name="ContactU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Message" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Enquiry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Loan_Req_Amnt" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Preferred_Bank" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Prop_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="city" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Mobile" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LoanType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Loan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Bank_Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Interest_Rate_Range" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Processing_Fee_Range" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Loan_Amount" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Tenure_Range" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="LoanType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="LoanData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Loan_No" Type="Int32" Nullable="false" />
+    <Property Name="Loan_Amount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Login_Date" Type="DateTime" Precision="3" />
+    <Property Name="Mobile_No" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Sourcing_Branch" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Rinn_Raksha" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Sourcing_Person" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Loan_Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="createdby" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MutualFundEnquiry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Mobile" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Loan_Amnt" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Mutual_Fund_Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Preferred_Bank" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="city" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+</Schema>
